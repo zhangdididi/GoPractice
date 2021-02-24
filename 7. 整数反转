@@ -43,7 +43,7 @@ func reverseStr(str string) string {
 }
 
 
-
+// 取模相加
 func reverse(x int) int {
 	var res int
 	for x != 0 {
