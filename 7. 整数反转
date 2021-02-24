@@ -10,3 +10,33 @@
 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
 */
 
+func reverse(x int) int {
+	var isNegativeNum bool
+	if x < 0 {
+		isNegativeNum = true
+		x *= -1
+	} else {
+		isNegativeNum = false
+	}
+	// 保证x为正数
+	xStr := strconv.Itoa(x)
+	str := reverseStr(xStr)
+	res, _ := strconv.Atoi(str)
+	if isNegativeNum {
+		res *= -1
+	}
+	if res > math.MaxInt32 || res < math.MinInt32 {
+		res = 0
+	}
+	return res
+}
+
+func reverseStr(str string) string {
+	arr := []rune(str)
+	temp := make([]rune, 0)
+	len := len(arr)
+	for i := 0; i < len; i++ {
+		temp = append(temp, arr[len - i - 1])
+	}
+	return string(temp)
+}
